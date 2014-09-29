@@ -1,41 +1,44 @@
 {
-   "name":"moneytrack-frontend",
-   "version":"0.1.0",
-   "description":"Front end for Money Tracker",
-   "author":"Taylor Lodge <ubermouse894@gmail.com>",
-   "contributors":[
-      {
-         "name":"Taylor Lodge",
-         "email":"ubermouse894@gmail.com"
-      }
-   ],
-   "script":{
-      "test":"TBD",
-      "start":"node server.js"
-   },
-   "repository":{
-      "type":"git",
-      "url":"https://github.com/UberMouse/MoneyTracker-frontend"
-   },
-   "bugs":{
-      "url":"https://github.com/UberMouse/MoneyTracker-frontend/issues"
-   },
-   "dependencies":{
-      "react": "0.11.1",
-      "rrouter": "0.4.2",
-      "fluxxor": "1.4.0",
-      "lodash": "2.4.1"
-   },
-   "devDependencies":{
-      "webpack": "~1.4.0",
-      "webpack-dev-server": "1.6.x",
-      "react-hot-loader": "*",
-      "coffee-loader": "*",
-      "sass-loader": "*",
-      "style-loader": "*",
-      "css-loader": "*",
-      "request": "~2.42.0"
-   },
-   "private":true,
-   "license":"MIT"
+  "name": "moneytrack-frontend",
+  "version": "0.1.0",
+  "description": "Front end for Money Tracker",
+  "author": "Taylor Lodge <ubermouse894@gmail.com>",
+  "contributors": [
+    {
+      "name": "Taylor Lodge",
+      "email": "ubermouse894@gmail.com"
+    }
+  ],
+  "script": {
+    "test": "TBD",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UberMouse/MoneyTracker-frontend"
+  },
+  "bugs": {
+    "url": "https://github.com/UberMouse/MoneyTracker-frontend/issues"
+  },
+  "dependencies": {
+    "bootstrap": "^3.2.0",
+    "fluxxor": "1.4.0",
+    "lodash": "2.4.1",
+    "react": "0.11.1",
+    "rrouter": "0.4.2",
+    "jquery": "2.1.1",
+    "bluebird": "2.3.4"
+  },
+  "devDependencies": {
+    "webpack": "~1.4.0",
+    "webpack-dev-server": "1.6.x",
+    "react-hot-loader": "*",
+    "coffee-loader": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "css-loader": "*",
+    "request": "~2.42.0"
+  },
+  "private": true,
+  "license": "MIT"
 }
