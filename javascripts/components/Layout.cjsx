@@ -1,4 +1,5 @@
 React = require('react')
+Sidebar = require('components/Sidebar')
 require('main.scss')
 require('material.css')
 require('ripples.css')
@@ -9,4 +10,7 @@ R = React.DOM
 module.exports = React.createClass
   render: ->
     R.div {className: 'container'},
-      @props.view
+      R.div {className: 'col-md-9'},
+        @props.view
+      R.div {className: 'col-md-3'},
+        new Sidebar()

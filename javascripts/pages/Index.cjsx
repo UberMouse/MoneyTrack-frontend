@@ -13,5 +13,5 @@ module.exports = React.createClass
   render: ->
     transactions = _.map(@state.transactions, (transaction)->
       new Transaction({transaction, key: transaction.Id}))
-    R.div {className: 'col-md-12'},
+    R.div null,
       transactions
