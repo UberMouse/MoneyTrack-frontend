@@ -11,9 +11,10 @@ module.exports = Fluxxor.createStore
     groups: @groups
   createGroup: (args)->
     group = {Name: args.name, Color: args.color}
-    @groups.push group
-    $.post('api/groups', group)
-    @emit("change")
+    
+    $.post('api/groups', group).done (data)=>
+      @groups.push data
+      @emit("change")  
   initModels: (args)->
     @groups = args.groups
     @emit("change")
