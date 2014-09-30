@@ -18,7 +18,8 @@ Back = React.createClass
   handleSubmit: (e)->
     e.preventDefault()
 
-    @props.submitCb(@state.groupId)
+    if @state.groupId != '-1' && @state.groupId != ''
+      @props.submitCb(@state.groupId)
   handleCancel: (e)->
     e.preventDefault()
 
@@ -27,11 +28,13 @@ Back = React.createClass
     groups = _.map @state.groups, (group)->
       R.option value: group.Id,
         group.Name
+    groups.unshift R.option value: '-1', "Choose a group"
     R.form className: 'form-horizontal',
       R.fieldset null,
         R.div className: 'form-group',
           R.label className: 'control-label', htmlFor: 'colorPicker',
             "Color"
+          # ToDo: Default value set to current group
           R.select className: 'form-control', id: 'colorPicker', valueLink: @linkState('groupId'),
             groups
         R.div className: 'form-group',
@@ -66,7 +69,7 @@ module.exports = React.createClass
           R.span {"style": {'float': 'right'}}, date
         R.div className: "panel-body",
           if @state.assigningGroup
-            new Back({submitCb: @handleColorChange, cancelCb: @handleCancel})
+            new Back({submitCb: @handleColorChange, cancelCb: @handleCancel, groupId: @props.transaction.Group.Id})
           else
             classes = cx(
               'text-success': @props.transaction.Amount.indexOf("-") == -1,
