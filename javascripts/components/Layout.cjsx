@@ -1,5 +1,6 @@
 React = require('react')
 Sidebar = require('components/Sidebar')
+Nav = require('components/Nav')
 require('main.scss')
 require('material.css')
 require('ripples.css')
@@ -10,6 +11,8 @@ R = React.DOM
 module.exports = React.createClass
   render: ->
     R.div {className: 'container'},
+      R.nav null,
+        new Nav()
       R.div {className: 'col-md-9'},
         @props.view
       R.div {className: 'col-md-3'},
