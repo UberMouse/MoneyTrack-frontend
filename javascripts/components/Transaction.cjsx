@@ -59,12 +59,12 @@ module.exports = React.createClass
   render: ->
     date = @props.transaction.Date.split("T")[0]
 
-    R.div {className: "col-md-6"},
-      R.div {className: "panel panel-default"},
-        R.div {className: "panel-heading"},
+    R.div className: "col-md-6",
+      R.div className: "panel panel-default",
+        R.div className: "panel-heading",
           @props.transaction.Description || "N/A",
           R.span {"style": {'float': 'right'}}, date
-        R.div {className: "panel-body"},
+        R.div className: "panel-body",
           if @state.assigningGroup
             new Back({submitCb: @handleColorChange, cancelCb: @handleCancel})
           else
@@ -77,5 +77,7 @@ module.exports = React.createClass
                 new Front({classes, amount: @props.transaction.Amount})
               R.button style: {float: 'right'}, className: 'btn btn-primary btn-xs', onClick: @handleTagClick,
                 "Tag"
+        R.div className: 'panel-footer', style: {backgroundColor: '#'+@props.transaction.Group.Color},
+          R.p null
 
   

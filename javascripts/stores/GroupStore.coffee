@@ -7,7 +7,6 @@ module.exports = Fluxxor.createStore
     @groups = []
     @bindActions Constants.INIT_MODELS, @initModels,
                  Constants.CREATE_GROUP, @createGroup
-                 Constants.CHANGE_COLOR, @changeColor
   getState: ->
     groups: @groups
   createGroup: (args)->
