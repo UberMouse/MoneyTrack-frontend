@@ -24,6 +24,7 @@ module.exports = React.createClass
         new CreateGroup(groups: @state.groups, submitCb: @createGroup, cancelCb: @flipEditState)
       else
         R.div null,
-          R.button className: 'btn btn-primary', onClick: @handleEditClick,
-            "Create"
+          R.div className: 'col-md-12',
+            R.button className: 'btn btn-primary', onClick: @handleEditClick,
+              "Create"
           new ViewGroups(groups: @state.groups)

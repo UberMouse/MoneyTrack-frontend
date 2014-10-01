@@ -6,11 +6,13 @@ cx = React.addons.classSet
 R = React.DOM
 
 Front = React.createClass
+  displayName: "TransactionFront"
   render: ->
     R.span {className: @props.classes}, @props.amount
 
 Back = React.createClass
   mixins: [React.addons.LinkedStateMixin, FluxChildMixin, Fluxxor.StoreWatchMixin("GroupStore")]
+  displayName: "TransactionRear"
   getInitialState: ->
     groupId: ''
   getStateFromFlux: ->
@@ -46,6 +48,7 @@ Back = React.createClass
 
 module.exports = React.createClass
   mixins: [FluxChildMixin]
+  displayName: "Transaction"
   getInitialState: ->
     assigningGroup: false
   handleColorChange: (groupId)->

@@ -10,6 +10,7 @@ config.output.publicPath = 'http://localhost:3000/' + config.output.publicPath;
 var pushStateHook = function (rootUrl) {
   var path = require('path');
   return function (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*")
     var ext = path.extname(req.url);
     if ((ext === '' || ext === '.html') && req.url !== '/') {
       req.pipe(request(rootUrl)).pipe(res);

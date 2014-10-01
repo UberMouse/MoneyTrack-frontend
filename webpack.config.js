@@ -7,7 +7,7 @@ var path = require('path');
 module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/dev-server',
+        'webpack/hot/only-dev-server',
         './javascripts/boot.coffee'
     ],
     devtool: "eval",
@@ -23,8 +23,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.cjsx/, loaders: ['coffee', 'react-hot'] },
-            { test: /\.coffee$/, loader: 'coffee'},
+            { test: /\.coffee$/, loaders: ['react-hot', 'coffee']},
             { test: /\.scss$/, exclude: /\.useable.scss$/, loaders: ['style', 'css', 'sass']},
             { test: /\.useable.scss$/, loaders: ['style/useable', 'css', 'sass']},
             { test: /\.css$/, loaders: ['style/useable', 'css']}

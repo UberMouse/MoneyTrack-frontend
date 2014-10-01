@@ -7,7 +7,7 @@ module.exports = React.createClass
     {name: '', color: ''}
   handleSubmit: (e)->
     e.preventDefault()
-    console.log(@state)
+
     @props.submitCb(@state.name, @state.color)
   handleCancel: (e)->
     e.preventDefault()

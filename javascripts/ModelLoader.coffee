@@ -6,9 +6,7 @@ module.exports = class ModelLoader
     @initFunction = initFunction
   load: ->
     Promise.join @loadTransactions(), @loadGroups(),
-      (transactions, groups)=> 
-        console.log(transactions)
-        @initFunction({transactions, groups: groups})
+      (transactions, groups)=> @initFunction({transactions, groups: groups})
   loadTransactions: ->
     Promise.resolve($.get('/api/transactions'))
   loadGroups: ->
