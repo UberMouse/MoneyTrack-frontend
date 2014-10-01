@@ -11,12 +11,10 @@ Front = React.createClass
     R.span {className: @props.classes}, @props.amount
 
 Back = React.createClass
-  mixins: [React.addons.LinkedStateMixin, FluxChildMixin, Fluxxor.StoreWatchMixin("GroupStore")]
+  mixins: [React.addons.LinkedStateMixin, FluxChildMixin]
   displayName: "TransactionRear"
   getInitialState: ->
     groupId: ''
-  getStateFromFlux: ->
-    groups: @getFlux().store("GroupStore").getState().groups
   handleSubmit: (e)->
     e.preventDefault()
 
@@ -27,7 +25,7 @@ Back = React.createClass
 
     @props.cancelCb()
   render: ->
-    groups = _.map @state.groups, (group)->
+    groups = _.map @props.groups, (group)->
       R.option value: group.Id,
         group.Name
     groups.unshift R.option value: '-1', "Choose a group"
@@ -72,7 +70,12 @@ module.exports = React.createClass
           R.span {"style": {'float': 'right'}}, date
         R.div className: "panel-body",
           if @state.assigningGroup
-            new Back({submitCb: @handleColorChange, cancelCb: @handleCancel, groupId: @props.transaction.Group.Id})
+            props =
+              submitCb: @handleColorChange,
+              cancelCb: @handleCancel,
+              groupId: @props.transaction.Group.Id,
+              groups: @props.groups
+            new Back(props)
           else
             classes = cx(
               'text-success': @props.transaction.Amount.indexOf("-") == -1,

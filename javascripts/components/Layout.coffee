@@ -10,7 +10,7 @@ R = React.DOM
 
 module.exports = React.createClass
   render: ->
-    R.div {className: 'container'},
+    R.div null,
       R.nav null,
         new Nav()
       R.div {className: 'col-md-9'},

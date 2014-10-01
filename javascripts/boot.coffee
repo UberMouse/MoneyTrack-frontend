@@ -15,6 +15,7 @@ stores =
   TransactionStore: new TransactionStore()
   GroupStore: new GroupStore()
 flux = new Fluxxor.Flux(stores, actions)
+window.flux = flux
 
 loader = new ModelLoader(flux.actions.initModels)
 loader.load()
@@ -31,4 +32,6 @@ routes = (
 Layout = require('components/layout')
 
 router.start routes, (view)->
-  React.renderComponent(new Layout({view}), document.body)
+  comp = React.DOM.div {className: 'container'},
+    new Layout({view})
+  React.renderComponent(comp, document.getElementById("app"))
