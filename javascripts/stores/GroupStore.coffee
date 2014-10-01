@@ -15,15 +15,12 @@ module.exports = Fluxxor.createStore
     group = {Name: args.name, Color: args.color}
     
     $.post('api/groups', group).done (data)=>
-      console.log(data)
       @groups.push data
       @emit("change")
   deleteGroup: (args)->
-    $.ajax('api/groups/'+args.id, {
-      method: 'DELETE'
-    }).done (data)=>
+    $.post('api/groups/delete', {Id: args.id}).done (data)=>
       @groups = _.filter @groups, (group)->
-        group.Id != args.Id
+        group.Id != args.id
       @emit("change")
   initModels: (args)->
     @groups = args.groups
